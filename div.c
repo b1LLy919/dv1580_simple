@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-      printf("%f / %f = %f\n", nummber_one, nummber_two, sum);
+      printf("%.4f / %.4f = %.4f\n", nummber_one, nummber_two, sum);
     }
     }
 
