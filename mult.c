@@ -1,7 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
-int main(int argc, char *argv[]){
+int is_number(const char *str)
+{
+  char *endptr;
+  errno = 0;
+  double val = strtod(str, &endptr);
+  
+  if (errno == ERANGE || (endptr == str))
+  {
+    return 0;
+  }
+
+  return 1;
+}
+
+int main(int argc, char *argv[])
+{
+  if (is_number(argv[1]) && is_number(argv[2]))
+  {
+    double nummber_one = atof(argv[1]);
+    double nummber_two = atof(argv[2]);
+
+    double sum = nummber_one * nummber_two;
+
+    printf("%f * %f = %f\n", nummber_one, nummber_two, sum);
+  }
 
   return 0;
 }
